@@ -1,5 +1,11 @@
 # Basic Flask usage example
 
+###### Helpful documentation:
+- [Flask Quickstart](https://flask.palletsprojects.com/en/2.2.x/quickstart/#)
+- [Routing in Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing)
+- [Flask Requests](https://flask.palletsprojects.com/en/2.2.x/quickstart/#accessing-request-data)
+- [Using HTML Templates in Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/#rendering-templates)
+
 ## To see example
 ```
 pip install flask
