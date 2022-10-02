@@ -30,11 +30,12 @@ def api():
 
 @app.route("/api/post", methods=["POST"])
 def api_submit():
-    # Extract the "name" value from the posted data
+    # Extract the "name" and "email" values from the posted data
     name = request.form["name"]
+    email = request.form["email"]
     
     # The data to send back to the client
-    res_data = f"OK. Successfully posted name: { name }"
+    res_data = f"Successfully posted name: { name }, email: { email }"
 
     # Create the response using your data
     res = flask.make_response(res_data)

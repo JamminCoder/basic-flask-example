@@ -7,40 +7,58 @@
     <title>Request</title>
 </head>
 <body>
+    <h1>Flask as an API example</h1>
     <button onclick="get()">Get Request</button>
     <button onclick="post()">Post Request</button>
 
     <p id="display"></p>
 
     <script>
+        // This may need to be change to match your server
+        const SERVER_URL = "http://localhost:5000"; 
+        const API_GET = `${SERVER_URL}/api/get`;
+        const API_POST = `${SERVER_URL}/api/post`;
 
         function updateDisplay(req, other) {
             document.querySelector("#display").innerHTML = req.response;
         }
 
         function get() {
+            // Creates new request object
             const req = new XMLHttpRequest();
-            req.open("GET", "http://localhost:5000/api/get");
+
+            // Configure request method and URL
+            req.open("GET", API_GET);
+            
             
             req.addEventListener("load", () => {
-                console.log("Send GET request to /api/get and got this response: " +  req.response);
-                updateDisplay(req) 
+                // This executes when the request is sent and a response is received.
+                console.log("Send GET request to /api/get and got this response:\n" +  req.response);
+                updateDisplay(req);
             });
 
+            // Send the request
             req.send();
         }
 
         function post() {
             const req = new XMLHttpRequest();
-            const params = "name=tim"
-            req.open("POST", "http://localhost:5000/api/post");
+
+            // Set form parameters. Each parameter name/value pair is separated by an &
+            const params = "name=john&email=john@email.com"
+            
+            req.open("POST", API_POST);
             
             req.addEventListener("load", () => {
-                console.log("POSTed data and got this response back: " + req.response);
+                console.log("POSTed data and got this response back:\n" + req.response);
                 updateDisplay(req);
             });
 
+            // Need to set the content type to this so Flask can 
+            // easily access the params with request.form["param_name"]
             req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            
+            // Send the request with the params
             req.send(params);
         }
 

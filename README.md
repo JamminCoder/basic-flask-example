@@ -34,4 +34,5 @@ You will then see a message printed similar to this:
 * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)
 ```
 
-Visit the address printed to the terminal to see the app.
+Then open the `index.html` file in a web browser, and click the buttons to send GET and POST requests to the server. Also check the browser console to see the output.
+### Note: You may need to change the `SERVER_URL` variable in `index.html` to match the port that your Flask app is running on.
