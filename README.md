@@ -1,5 +1,5 @@
 # Basic Flask usage example
-
+##### For examples on using Flask as an API, checkout the other branch: [api-example](https://github.com/JamminCoder/basic-flask-example/tree/api-example)
 ###### Helpful documentation:
 - [Flask Quickstart](https://flask.palletsprojects.com/en/2.2.x/quickstart/#)
 - [Routing in Flask](https://flask.palletsprojects.com/en/2.2.x/quickstart/#routing)
