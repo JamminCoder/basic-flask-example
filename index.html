@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request</title>
+</head>
+<body>
+    <button onclick="get()">Get Request</button>
+    <button onclick="post()">Post Request</button>
+
+    <p id="display"></p>
+
+    <script>
+
+        function updateDisplay(req, other) {
+            document.querySelector("#display").innerHTML = req.response;
+        }
+
+        function get() {
+            const req = new XMLHttpRequest();
+            req.open("GET", "http://localhost:5000/api/get");
+            
+            req.addEventListener("load", () => {
+                console.log("Send GET request to /api/get and got this response: " +  req.response);
+                updateDisplay(req) 
+            });
+
+            req.send();
+        }
+
+        function post() {
+            const req = new XMLHttpRequest();
+            const params = "name=tim"
+            req.open("POST", "http://localhost:5000/api/post");
+            
+            req.addEventListener("load", () => {
+                console.log("POSTed data and got this response back: " + req.response);
+                updateDisplay(req);
+            });
+
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            req.send(params);
+        }
+
+    </script>
+</body>
+</html>
